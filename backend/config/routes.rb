@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
   end
 
+  post 'api/test', to: 'application#test'
 end
