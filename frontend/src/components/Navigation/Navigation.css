@@ -1,0 +1,73 @@
+.profile-button {
+    width: 80px;
+    display: flex;
+    justify-self: right;
+  }
+
+  .profile-dropdown {
+    color: #717171;
+    width: 80px;
+    font-size: 26px;
+    border-radius: 30px;
+    border: 1px solid lightgray;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .profile-dropdown:hover {
+    box-shadow: 0px 2px 5px gray;
+    cursor: pointer;
+  }
+
+  .fa-bars {
+    font-size: 16px;
+  }
+  
+  .fa-circle-user {
+    font-size: 30px;
+  }
+
+  .Airbne-name{
+    font-family: sans-serif;
+  }
+
+  .nav-bar {
+    box-sizing: border-box;
+    height: 80px;
+    min-height: 80px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgray;
+    background-color: white;
+    z-index: 2;
+  }
+
+  .header-profile{
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .header-logo{
+    
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid var(--grey)
+    
+  }

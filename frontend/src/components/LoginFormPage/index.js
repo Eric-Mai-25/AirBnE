@@ -31,6 +31,14 @@ function LoginFormPage() {
       });
   }
 
+  const handleDemoLogin = (e)=>{
+    setEmail('demo1@user.io')
+    setPassword('password')
+    return dispatch(sessionActions.login({ email, password }))
+    .catch(async (res) => {
+    });
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <ul>
@@ -55,6 +63,7 @@ function LoginFormPage() {
         />
       </label>
       <button type="submit">Log In</button>
+      <button onClick={handleDemoLogin}>Login Demo</button>
     </form>
   );
 }
