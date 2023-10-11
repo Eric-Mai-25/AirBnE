@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import * as sessionActions from "../../../store/session";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { PiUserCircleFill } from "react-icons/pi";
+import { NavLink } from "react-router-dom";
+import "./ProfileButton.css";
 
-function ProfileButton({ user }) {
+function ProfileButton() {
+  const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -28,20 +35,47 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  let sessionLinks;
+  if (!sessionUser) {
+    sessionLinks = (
+      <>
+        {showMenu && (
+          <div className="user-drop-down">
+            <div className="line"></div>
+            <button className="log-btn">Log In</button>
+            <button className="signup-btn">Sign Up</button>
+            <div className="login-line"/>
+          </div>
+          // {/* <NavLink to="/login">Log In</NavLink>
+          // <NavLink to="/signup">Sign Up</NavLink> */}
+        )}
+      </>
+    );
+  } else {
+    sessionLinks = (
+      <>
+        {showMenu && (
+          <ul className="user-drop-down">
+            <li>{sessionUser.username}</li>
+            <li>{sessionUser.email}</li>
+            <li>
+              <button onClick={logout}>Log Out</button>
+            </li>
+          </ul>
+        )}
+      </>
+    );
+  }
+
   return (
     <>
-      <button onClick={openMenu}> Hello {user.username}
-        <i className="fa-solid fa-user-circle" />
-      </button> 
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
-      )}
+      <div className="profile-button" onClick={openMenu}>
+        <div className="profile-dropdown">
+          <GiHamburgerMenu size={'0.7em'}className="hamburger" />
+          <PiUserCircleFill className="user-fill" />
+        </div>
+      </div>
+      <div className="dropdown-content">{sessionLinks}</div>
     </>
   );
 }
