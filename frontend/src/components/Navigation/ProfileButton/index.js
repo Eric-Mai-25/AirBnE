@@ -6,10 +6,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { PiUserCircleFill } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
 import "./ProfileButton.css";
+import Modal from "../../Modal";
 
 function ProfileButton() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const [showModal, setShowModal] = useState(false);
+  const [currAction, setCurrAction] = useState("");
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -35,16 +38,27 @@ function ProfileButton() {
     dispatch(sessionActions.logout());
   };
 
+  const handleModal = (field) => (e) => {
+    setShowModal(!showModal);
+    setCurrAction(field);
+  };
+  const hideModal = (e) => {
+    setShowModal(false);
+  };
+
   let sessionLinks;
   if (!sessionUser) {
     sessionLinks = (
       <>
         {showMenu && (
           <div className="user-drop-down">
-            <div className="line"></div>
-            <button className="log-btn">Log In</button>
-            <button className="signup-btn">Sign Up</button>
-            <div className="login-line"/>
+            <button onClick={handleModal(true)} className="log-btn">
+              Log In
+            </button>
+            <button onClick={handleModal(false)} className="signup-btn">
+              Sign Up
+            </button>
+            <div className="login-line" />
           </div>
           // {/* <NavLink to="/login">Log In</NavLink>
           // <NavLink to="/signup">Sign Up</NavLink> */}
@@ -55,13 +69,16 @@ function ProfileButton() {
     sessionLinks = (
       <>
         {showMenu && (
-          <ul className="user-drop-down">
-            <li>{sessionUser.username}</li>
-            <li>{sessionUser.email}</li>
-            <li>
-              <button onClick={logout}>Log Out</button>
-            </li>
-          </ul>
+          <div className="user-drop-down">
+            <button className="log-btn" >Messages</button>
+            <button style={{'font-weight': 'bold'}} className="signup-btn">Trips</button>
+            <button  style={{'font-weight': 'bold'}}className="signup-btn">Wishlists</button>
+            <div className="login-line" />
+            <button className="signup-btn">Airbne your home</button>
+            <button className="signup-btn">Account</button>
+            <div className="login-line" />
+            <button onClick={logout} className="logout-btn">Log Out</button>
+          </div>
         )}
       </>
     );
@@ -71,11 +88,12 @@ function ProfileButton() {
     <>
       <div className="profile-button" onClick={openMenu}>
         <div className="profile-dropdown">
-          <GiHamburgerMenu size={'0.7em'}className="hamburger" />
+          <GiHamburgerMenu size={"0.7em"} className="hamburger" />
           <PiUserCircleFill className="user-fill" />
         </div>
       </div>
       <div className="dropdown-content">{sessionLinks}</div>
+      <Modal show={showModal} action={currAction} hide={hideModal.bind(this)} />
     </>
   );
 }

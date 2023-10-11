@@ -1,5 +1,9 @@
 .log-btn{
     margin-top: 1rem;
+    font-weight: bold;
+}
+.logout-btn{
+  margin-bottom: 1rem ;
 }
 
 
@@ -21,3 +25,4 @@
   .user-drop-down button:hover {
     background-color: rgb(243, 243, 243);
   }
+

@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import * as sessionActions from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import './LoginForm.css'
+import React, { useState } from "react";
+import * as sessionActions from "../../store/session";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
+import "./LoginForm.css";
 
-function LoginFormPage() {
+function LoginFormPage({ hide }) {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const sessionUser = useSelector((state) => state.session.user);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) hide();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ email, password }))
-      .catch(async (res) => {
+    return dispatch(sessionActions.login({ email, password })).catch(
+      async (res) => {
         let data;
         try {
           // .clone() essentially allows you to read the response body twice
@@ -28,42 +28,56 @@ function LoginFormPage() {
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
-      });
-  }
+      }
+    );
+  };
 
-  const handleDemoLogin = (e)=>{
-    setEmail('demo1@user.io')
-    setPassword('password')
-    return dispatch(sessionActions.login({ email, password }))
-    .catch(async (res) => {
-    });
-  }
+  const handleDemoLogin = (e) => {
+    e.preventDefault();
+    setEmail("demo1@user.io");
+    setPassword("password");
+    return dispatch(sessionActions.login({email: "demo1@user.io" , password: "password"}))
+  };
 
   return (
     <form onSubmit={handleSubmit}>
       <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
       </ul>
-      <label>
-        Email
+      <div className="form-box">
         <input
-          type="text"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Password
+        <label className={email && "filled"}>Email</label>
+      </div>
+      <div className="form-box">
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
-      <button type="submit">Log In</button>
-      <button onClick={handleDemoLogin}>Login Demo</button>
+        <label className={password && "filled"}>Password</label>
+      </div>
+      <div className="containter container-two">
+        <button className="login-button" type="submit">
+          Log In
+        </button>
+      </div>
+
+      <div className="login-line">
+        <span>or</span>
+      </div>
+      <div className="containter container-two">
+        <button className="login-button" onClick={handleDemoLogin}>
+          Login Demo
+        </button>
+      </div>
     </form>
   );
 }
