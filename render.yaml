@@ -1,12 +1,12 @@
 databases:
-  - name: Airbne
-    user: Airbne
+  - name: airbne
+    user: airbne
     plan: free
     region: oregon
 
 services:
   - type: web
-    name: Airbne
+    name: airbne
     plan: free
     region: oregon
     branch: main
@@ -16,7 +16,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: Airbne
+          name: airbne
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
