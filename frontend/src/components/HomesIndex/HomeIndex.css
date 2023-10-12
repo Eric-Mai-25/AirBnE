@@ -1,0 +1,45 @@
+.nav-filter{
+    padding: 1rem 0rem;
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    align-items: center;
+    margin: 0rem 3rem;
+    z-index: 0;
+}
+
+.filter-box, .selected-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    height: 4rem;
+    border-bottom: 2px solid white;
+    min-width: 70px;
+
+}
+
+.filter-box:hover{
+    opacity: 1;
+    border-bottom: 2px solid darkgray;
+    transition: all 0.3s;
+}
+
+.filter-img{
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+}
+
+.filter-label{
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: var(--font-grey);
+}
+
+.selected-box{
+    opacity: 1;
+    border-bottom: 2px solid black;
+    transition: all 0.3s;
+}

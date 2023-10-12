@@ -7,20 +7,26 @@ import { images } from "../../assets/navcon";
 
 function HomesIndex(props) {
   const dispatch = useDispatch();
-  const homes = useSelector();
+  const [selectedFilter, setSelectedFilter] = useState("");
 
-  useEffect(() => {
-    dispatch();
-  }, []);
+  useEffect(() => {}, []);
+
+  const handleSelect = index => e =>{
+    setSelectedFilter(index)
+  }
 
   return (
     <>
-      <div>
+      <div className="nav-filter">
         {images.map((icon, index) => {
           return (
-            <div>
-              <img key={index} src={icon.imgSrc} />
-              <label>{icon.label}</label>
+            <div
+              key={index}
+              className={index === selectedFilter ? "selected-box" : "filter-box"}
+              onClick={handleSelect(index)}
+            >
+              <img className="filter-img" src={icon.imgSrc} />
+              <label className="filter-label">{icon.label}</label>
             </div>
           );
         })}
@@ -29,4 +35,4 @@ function HomesIndex(props) {
   );
 }
 
-export default HomesIndex
+export default HomesIndex;

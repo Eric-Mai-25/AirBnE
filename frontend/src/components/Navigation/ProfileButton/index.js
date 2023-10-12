@@ -50,35 +50,47 @@ function ProfileButton() {
   if (!sessionUser) {
     sessionLinks = (
       <>
-        {showMenu && (
-          <div className="user-drop-down">
-            <button onClick={handleModal(true)} className="log-btn">
-              Log In
-            </button>
-            <button onClick={handleModal(false)} className="signup-btn">
-              Sign Up
-            </button>
-            <div className="login-line" />
+        {showMenu ? (
+          <div className="dropdown-content">
+            <div className="user-drop-down">
+              <button onClick={handleModal(true)} className="log-btn">
+                Log In
+              </button>
+              <button onClick={handleModal(false)} className="signup-btn">
+                Sign Up
+              </button>
+              <div className="login-line" />
+            </div>
           </div>
-          // {/* <NavLink to="/login">Log In</NavLink>
-          // <NavLink to="/signup">Sign Up</NavLink> */}
+        ) : (
+          <></>
         )}
       </>
     );
   } else {
     sessionLinks = (
       <>
-        {showMenu && (
-          <div className="user-drop-down">
-            <button className="log-btn" >Messages</button>
-            <button style={{'font-weight': 'bold'}} className="signup-btn">Trips</button>
-            <button  style={{'font-weight': 'bold'}}className="signup-btn">Wishlists</button>
-            <div className="login-line" />
-            <button className="signup-btn">Airbne your home</button>
-            <button className="signup-btn">Account</button>
-            <div className="login-line" />
-            <button onClick={logout} className="logout-btn">Log Out</button>
+        {showMenu ? (
+          <div className="dropdown-content">
+            <div className="user-drop-down">
+              <button className="log-btn">Messages</button>
+              <button style={{ "font-weight": "bold" }} className="signup-btn">
+                Trips
+              </button>
+              <button style={{ "font-weight": "bold" }} className="signup-btn">
+                Wishlists
+              </button>
+              <div className="login-line" />
+              <button className="signup-btn">Airbne your home</button>
+              <button className="signup-btn">Account</button>
+              <div className="login-line" />
+              <button onClick={logout} className="logout-btn">
+                Log Out
+              </button>
+            </div>
           </div>
+        ) : (
+          <></>
         )}
       </>
     );
@@ -92,7 +104,7 @@ function ProfileButton() {
           <PiUserCircleFill className="user-fill" />
         </div>
       </div>
-      <div className="dropdown-content">{sessionLinks}</div>
+      {sessionLinks}
       <Modal show={showModal} action={currAction} hide={hideModal.bind(this)} />
     </>
   );
