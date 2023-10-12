@@ -3,8 +3,8 @@
 # exit on error
 set -o errexit
 
-cd backend
 npm run build
+cd backend
 bundle install
 rails db:migrate
 rails db:seed #if needed
