@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+# #!/usr/bin/env bash
 
-# exit on error
-set -o errexit
+# # exit on error
+# set -o errexit
 
 
-cd backend
-rails s
+# cd backend
+# rails s
