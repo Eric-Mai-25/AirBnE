@@ -4,8 +4,8 @@
 #
 #  id              :bigint           not null, primary key
 #  username        :string           not null
-#  phone_number    :integer          not null
-#  email           :integer          not null
+#  phone_number    :string           not null
+#  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  profile_picture :string           not null

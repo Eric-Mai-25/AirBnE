@@ -16,19 +16,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_10_162812) do
 
   create_table "homes", force: :cascade do |t|
     t.bigint "host_id", null: false
+    t.string "property_type", null: false
+    t.string "address", null: false
+    t.string "apt_num", default: "", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "country", null: false
     t.string "title", null: false
-    t.text "description"
-    t.decimal "price_per_night", null: false
-    t.string "location"
-    t.string "property_type"
-    t.integer "number_of_bedrooms"
-    t.integer "number_of_bathrooms"
-    t.integer "maximum_guests"
-    t.text "availability_calendar"
+    t.text "description", null: false
+    t.integer "num_beds", null: false
+    t.integer "num_bedrooms", null: false
+    t.integer "num_bathrooms", null: false
+    t.float "night_price", null: false
+    t.float "cleaning_fee", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address", "apt_num", "city"], name: "index_homes_on_address_and_apt_num_and_city", unique: true
+    t.index ["country"], name: "index_homes_on_country"
     t.index ["host_id"], name: "index_homes_on_host_id"
-    t.index ["title"], name: "index_homes_on_title"
+    t.index ["night_price"], name: "index_homes_on_night_price"
+    t.index ["num_bathrooms"], name: "index_homes_on_num_bathrooms"
+    t.index ["num_bedrooms"], name: "index_homes_on_num_bedrooms"
+    t.index ["num_beds"], name: "index_homes_on_num_beds"
+    t.index ["property_type"], name: "index_homes_on_property_type"
+    t.index ["state"], name: "index_homes_on_state"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,4 +59,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_10_162812) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "homes", "users", column: "host_id"
 end
