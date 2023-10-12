@@ -1,11 +1,13 @@
 .nav-filter{
-    padding: 1rem 0rem;
+    position: sticky;
+    top: 4.5rem;
+    padding: 0rem 3rem;
     display: flex;
     justify-content: flex-start;
     overflow-x: auto;
     align-items: center;
-    margin: 0rem 3rem;
     z-index: 0;
+    background-color: white;
 }
 
 .filter-box, .selected-box{
@@ -17,7 +19,6 @@
     height: 4rem;
     border-bottom: 2px solid white;
     min-width: 70px;
-
 }
 
 .filter-box:hover{
@@ -43,3 +44,11 @@
     border-bottom: 2px solid black;
     transition: all 0.3s;
 }
+
+.card-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 5rem;
+  }

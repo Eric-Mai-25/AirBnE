@@ -84,3 +84,4 @@ production:
   database: airbne_production
   username: airbne
   password: <%= ENV["AIRBNE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./HomeIndex.css";
 import { images } from "../../assets/navcon";
+import HomeIndexItem from "./HomeIndexItem";
 
 function HomesIndex(props) {
   const dispatch = useDispatch();
@@ -11,9 +12,9 @@ function HomesIndex(props) {
 
   useEffect(() => {}, []);
 
-  const handleSelect = index => e =>{
-    setSelectedFilter(index)
-  }
+  const handleSelect = (index) => (e) => {
+    setSelectedFilter(index);
+  };
 
   return (
     <>
@@ -22,7 +23,9 @@ function HomesIndex(props) {
           return (
             <div
               key={index}
-              className={index === selectedFilter ? "selected-box" : "filter-box"}
+              className={
+                index === selectedFilter ? "selected-box" : "filter-box"
+              }
               onClick={handleSelect(index)}
             >
               <img className="filter-img" src={icon.imgSrc} />
@@ -30,6 +33,11 @@ function HomesIndex(props) {
             </div>
           );
         })}
+      </div>
+      <div className="card-box">
+        {[...Array(20)].map((_, i) => (
+          <HomeIndexItem />
+        ))}
       </div>
     </>
   );

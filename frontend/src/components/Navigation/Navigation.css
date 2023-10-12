@@ -59,6 +59,8 @@
   position: sticky;
   border-bottom: 1px solid var(--grey);
   top: 0;
+  z-index: 10;
+  background-color: white;
 }
 
 .search-bar {
