@@ -1,0 +1,22 @@
+{
+  "name": "airbne",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eric-Mai-25/AirBnE.git"
+  },
+  "engines": {
+    "node": "16.20.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eric-Mai-25/AirBnE/issues"
+  },
+  "homepage": "https://github.com/Eric-Mai-25/AirBnE#readme"
+}
