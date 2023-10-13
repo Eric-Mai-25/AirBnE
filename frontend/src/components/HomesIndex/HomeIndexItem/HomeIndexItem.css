@@ -1,17 +1,32 @@
+/* @font-face {
+    font-family: AirCereal ;
+    src: url("../../../assets/font/AirbnbCereal_W_Bk.otf") format(opentype);
+}
+@font-face {
+    font-family: AirCereal2 ;
+    src: url("../../../assets/font/AirbnbCereal_W_Lt.otf") format(opentype);
+} */
+
+
 .card-img {
-  height: 300px;
-  width: 300px;
+  height: 320px;
+  width: 320px;
   object-fit: cover;
   border-radius: 1rem;
 }
 
-.card-info{
+.card-info, .card-info-price{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 1rem;
     margin-top: 0.5rem ;
+}
+.card-info-price{
+    justify-content: left;
+    font-family: AirCereal2;
+
 }
 
 .card-title{
@@ -30,6 +45,21 @@
     align-items: center;
 }
 
+.card-distance{
+    color: var(--font-grey)
+
+}
+
+.card-price{
+    font-weight:bold;
+    font-family: AirCereal;
+    font-size: 15px;
+    padding-right: 3px;
+}
+
 .card{
     padding: 1rem 0rem; 
+    text-decoration: none;
+    color:black;
 }
+

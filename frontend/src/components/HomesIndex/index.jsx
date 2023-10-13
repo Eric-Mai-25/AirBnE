@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
 import "./HomeIndex.css";
 import { images } from "../../assets/navcon";
 import HomeIndexItem from "./HomeIndexItem";
+import { getHomes, fetchHomes } from "../../store/home";
 
 function HomesIndex(props) {
   const dispatch = useDispatch();
   const [selectedFilter, setSelectedFilter] = useState("");
-
-  useEffect(() => {}, []);
+  const homes = useSelector(getHomes)
+  
+  useEffect(() => {
+    dispatch(fetchHomes())
+  }, []);
 
   const handleSelect = (index) => (e) => {
     setSelectedFilter(index);
@@ -35,8 +37,8 @@ function HomesIndex(props) {
         })}
       </div>
       <div className="card-box">
-        {[...Array(20)].map((_, i) => (
-          <HomeIndexItem />
+        {homes.map((home, i) => (
+          <HomeIndexItem home={home}/>
         ))}
       </div>
     </>

@@ -2,26 +2,35 @@ import React from "react";
 import sampleHotel from "../../../assets/hotels/hotel-1.jpeg";
 import "./HomeIndexItem.css";
 import { AiFillStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
-function HomeIndexItem({ data }) {
+
+function HomeIndexItem({ home }) {
+
+
+  const handleCardClick = e =>{
+
+  }
+
   return (
     <>
-      <div className="card">
+      <Link to={`/homes/${home.id}`} className="card">
         <img src={sampleHotel} className="card-img" />
         <div className="card-info">
-          <p className="card-title">Place</p>
+          <p className="card-title">{home.title}</p>
           <div className="card-rating">
             <AiFillStar />
             <p>4.00</p>
           </div>
         </div>
         <div className="card-info">
-            <p className="">30 miles away</p>
+            <p className="card-distance">30 miles away</p>
         </div>
-        <div className="card-info ">
-            <p>$200 night</p>
+        <div className="card-info-price">
+            <p className="card-price">${home.nightPrice}</p>
+            <p>night</p>
         </div>
-      </div>
+      </Link>
     </>
   );
 }

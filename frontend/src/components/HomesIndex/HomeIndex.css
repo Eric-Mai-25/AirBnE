@@ -13,17 +13,21 @@
 .filter-box, .selected-box{
     display: flex;
     flex-direction: column;
+    padding: 0rem 1rem;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
+    margin-top: 1rem;
     height: 4rem;
     border-bottom: 2px solid white;
     min-width: 70px;
+    color: var(--font-grey);
+
 }
 
 .filter-box:hover{
     opacity: 1;
     border-bottom: 2px solid darkgray;
+    color: black;
     transition: all 0.3s;
 }
 
@@ -31,17 +35,26 @@
     width: 1.5rem;
     height: 1.5rem;
     object-fit: contain;
+    padding-bottom: 0.6rem;
 }
 
 .filter-label{
-    font-size: 0.6rem;
+
+    font-size: 0.7rem;
+    font-family: AirCereal;
     font-weight: 800;
-    color: var(--font-grey);
+    white-space: nowrap;
 }
+
+/* .filter-label:hover{
+    color: black;
+    transition: all 0.3s;
+} */
 
 .selected-box{
     opacity: 1;
     border-bottom: 2px solid black;
+    color:black;
     transition: all 0.3s;
 }
 

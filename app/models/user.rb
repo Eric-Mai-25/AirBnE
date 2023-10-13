@@ -28,10 +28,10 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  # has_many :homes,
-  #   class_name: :Homes,
-  #   foreign_key: :host_id,
-  #   dependent: :destroy
+  has_many :homes,
+    class_name: :Home,
+    foreign_key: :host_id,
+    dependent: :destroy
 
   # has_many :reservations,
   #   class_name: :Reservation,
