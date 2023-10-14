@@ -1,7 +1,7 @@
 import csrfFetch from './csrf';
 
 export const RECEIVE_HOMES = 'homes/RECEIVE_HOMES'
-export const RECEIVE_HOME = 'homes/RECEIVE_HOMES'
+export const RECEIVE_HOME = 'homes/RECEIVE_HOME'
 
 const loadAll = (homes) =>{
     return({
@@ -37,10 +37,9 @@ export const  fetchHomes = () => async dispatch =>{
 }
 export const  fetchHome = (homeId) => async dispatch =>{
     const response = await csrfFetch(`/api/homes/${homeId}`)
-
     if(response.ok){
-        const event = await response.json()
-        dispatch(load(event))
+        const home = await response.json()
+        dispatch(load(home))
     }
 }
 
@@ -49,9 +48,9 @@ const homesReducer = (state={}, action)=>{
 
     switch (action.type) {
         case RECEIVE_HOMES:
-            return action.homes;
+            return {...action.homes}
         case RECEIVE_HOME:
-            nextState[action.home.id] = action.event
+            nextState[action.home.id] = action.home
             return nextState
         default:
             return state

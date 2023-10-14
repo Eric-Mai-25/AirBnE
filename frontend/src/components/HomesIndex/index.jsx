@@ -9,10 +9,15 @@ function HomesIndex(props) {
   const dispatch = useDispatch();
   const [selectedFilter, setSelectedFilter] = useState("");
   const homes = useSelector(getHomes)
+
+  console.log(homes)
   
   useEffect(() => {
     dispatch(fetchHomes())
+    console.log('dispatching')
   }, []);
+
+ 
 
   const handleSelect = (index) => (e) => {
     setSelectedFilter(index);

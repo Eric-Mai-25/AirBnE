@@ -1,0 +1,26 @@
+.header-title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0;
+}
+
+.header-rating{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+
+}
+.header-left span, .header-right span{
+    padding: 0.3rem;
+}
+
+.header-box{
+    padding: 1rem 20% 0rem 20%;
+}
+
+.header-save{
+    padding-right: 0rem;
+}

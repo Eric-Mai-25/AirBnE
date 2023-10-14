@@ -1,15 +1,7 @@
-/* @font-face {
-    font-family: AirCereal ;
-    src: url("../../../assets/font/AirbnbCereal_W_Bk.otf") format(opentype);
-}
-@font-face {
-    font-family: AirCereal2 ;
-    src: url("../../../assets/font/AirbnbCereal_W_Lt.otf") format(opentype);
-} */
 
 
 .card-img {
-  height: 320px;
+  height: 300px;
   width: 320px;
   object-fit: cover;
   border-radius: 1rem;

@@ -1,6 +1,6 @@
 .nav-filter{
     position: sticky;
-    top: 4.5rem;
+    top: 5rem;
     padding: 0rem 3rem;
     display: flex;
     justify-content: flex-start;
@@ -32,8 +32,8 @@
 }
 
 .filter-img{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.3rem;
+    height: 1.3rem;
     object-fit: contain;
     padding-bottom: 0.6rem;
 }
