@@ -33,19 +33,19 @@ class User < ApplicationRecord
     foreign_key: :host_id,
     dependent: :destroy
 
-  # has_many :reservations,
-  #   class_name: :Reservation,
-  #   foreign_key: :guest_id,
-  #   dependent: :destroy
+  has_many :reservations,
+    class_name: :Reservation,
+    foreign_key: :guest_id,
+    dependent: :destroy
 
-  # has_many :trip_listings,
-  #          through: :reservations,
-  #          source: :listing
+  has_many :trip_listings,
+           through: :reservations,
+           source: :home
 
-  # has_many :reviews,
-  #   class_name: :Review,
-  #   foreign_key: :review_id,
-  #   dependent: :destroy
+  has_many :reviews,
+    class_name: :Review,
+    foreign_key: :review_id,
+    dependent: :destroy
 
   def self.find_by_credentials(email, password)
     @user = User.find_by(email: email)

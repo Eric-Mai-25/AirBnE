@@ -1,0 +1,10 @@
+.reserve-box {
+  display: flex;
+  height: 500px;
+  flex: auto;
+  margin-top: 2rem;
+  margin-left: 8rem;
+  border: 1px solid var(--grey);
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}

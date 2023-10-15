@@ -6,6 +6,7 @@ import { getHome, fetchHome } from "../../store/home";
 import "./HomeShow.css";
 import HomeTop from "./HomeShowComponents/HomeTop";
 import HomeShowImages from "./HomeShowComponents/HomeShowImages";
+import HomeShowMain from "./HomeShowComponents/HomeShowMain";
 
 function HomeShow(props) {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function HomeShow(props) {
         <div>
             <HomeTop home={home}/>
             <HomeShowImages/>
-            
+            <HomeShowMain home={home}/>
         </div>
 
     </div>

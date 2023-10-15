@@ -49,5 +49,12 @@ class Home < ApplicationRecord
              class_name: :User,
              foreign_key: :host_id
 
+  has_many :reservations,
+            class_name: :Reservation,
+            foreign_key: :home_id,
+            dependent: :destroy,
+            inverse_of: :home
+            
+
              
 end

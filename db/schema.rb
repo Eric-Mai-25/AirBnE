@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_12_231108) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_15_215414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,37 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_231108) do
     t.index ["state"], name: "index_homes_on_state"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "guest_id", null: false
+    t.bigint "home_id", null: false
+    t.date "check_in_date"
+    t.date "check_out_date"
+    t.float "total_price"
+    t.string "reservation_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_reservations_on_guest_id"
+    t.index ["home_id"], name: "index_reservations_on_home_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "author_id", null: false
+    t.bigint "home_id", null: false
+    t.integer "cleanliness", null: false
+    t.integer "communication", null: false
+    t.integer "check_in", null: false
+    t.integer "accuracy", null: false
+    t.integer "location", null: false
+    t.integer "value", null: false
+    t.text "public_comment", null: false
+    t.text "private_comment"
+    t.date "review_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_reviews_on_author_id"
+    t.index ["home_id"], name: "index_reviews_on_home_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "phone_number", null: false
@@ -69,4 +100,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_231108) do
   end
 
   add_foreign_key "homes", "users", column: "host_id"
+  add_foreign_key "reservations", "users", column: "guest_id"
+  add_foreign_key "reservations", "users", column: "home_id"
+  add_foreign_key "reviews", "users", column: "author_id"
+  add_foreign_key "reviews", "users", column: "home_id"
 end

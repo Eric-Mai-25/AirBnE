@@ -85,4 +85,24 @@ ApplicationRecord.transaction do
       has_fireplace: Faker::Boolean.boolean(true_ratio: 0.3), # 30% chance of being true
     )
   end
+
+  Review.destroy_all
+
+  50.times do
+    Review.create(
+      author_id: Faker::Number.between(from: 1, to: 20), # Assuming user IDs are between 1 and 30
+      home_id: Faker::Number.between(from: 1, to: 20), # Assuming home IDs are between 1 and 20
+      cleanliness: Faker::Number.between(from: 1, to: 5),
+      communication: Faker::Number.between(from: 1, to: 5),
+      check_in: Faker::Number.between(from: 1, to: 5),
+      accuracy: Faker::Number.between(from: 1, to: 5),
+      location: Faker::Number.between(from: 1, to: 5),
+      value: Faker::Number.between(from: 1, to: 5),
+      public_comment: Faker::Lorem.paragraph,
+      private_comment: Faker::Lorem.paragraph,
+      review_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
+      created_at: Faker::Time.between(from: 2.years.ago, to: Time.zone.now),
+      updated_at: Faker::Time.between(from: 2.years.ago, to: Time.zone.now),
+    )
+  end
 end

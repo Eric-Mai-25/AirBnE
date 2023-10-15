@@ -1,0 +1,47 @@
+.left-title-box {
+  border-bottom: 1px solid var(--grey);
+  padding-bottom: 1.5rem;
+}
+
+.left-title {
+  margin-bottom: 5px;
+}
+
+.bedroom-box {
+  padding-top: 2rem;
+}
+
+.description {
+  padding-top: 1rem;
+}
+
+.bed-box {
+  display: flex;
+  flex: auto;
+  margin-right: 1rem;
+  border: 1px solid var(--grey);
+  border-radius: 15px;
+}
+
+
+.sleep-title {
+  display: flex;
+}
+.beds {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.bed-box-info {
+  padding: 2rem;
+}
+
+.bedroom-title {
+  margin: 0px;
+  padding-bottom: 0.5rem;
+}
+
+.icon{
+    size: 70;
+}

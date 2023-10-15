@@ -1,0 +1,12 @@
+.main-box{
+    display: flex;
+    padding: 0rem 10%;
+}
+
+.left-grid{
+    width: 55%;
+}
+
+.right-grid{
+    width: 45%;
+}
