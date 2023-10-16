@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import HomesIndex from "./components/HomesIndex";
 import HomeShow from "./components/HomeShow";
+import ReservationShow from "./components/ReservationShow";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route exact path="/homes/:homeId">
           <HomeShow />
+        </Route>
+        <Route exact path="/stays/:homeId">
+          <ReservationShow />
         </Route>
       </Switch>
     </>

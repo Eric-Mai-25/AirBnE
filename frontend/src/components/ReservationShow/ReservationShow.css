@@ -1,0 +1,12 @@
+.reserve-details{
+    display: flex;
+    padding: 0rem 10%;
+}
+
+.reserve-left{
+    width: 55%;
+}
+
+.reserve-right{
+    width: 45%;
+}
