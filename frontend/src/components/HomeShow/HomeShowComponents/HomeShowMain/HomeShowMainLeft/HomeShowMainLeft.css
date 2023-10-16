@@ -30,6 +30,8 @@
 .beds {
   display: flex;
   align-items: center;
+  overflow-x: auto;
+
   /* justify-content: space-between; */
 }
 

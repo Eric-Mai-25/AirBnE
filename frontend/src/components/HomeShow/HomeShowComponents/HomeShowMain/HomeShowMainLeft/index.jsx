@@ -5,7 +5,6 @@ import { LiaBedSolid } from "react-icons/lia";
 import "./HomeShowMainLeft.css";
 
 function HomeShowMainLeft({ home }) {
-  console.log(home, "this bitch is on fire");
 
   const [startDate , setStartDate] = useState('')
   const [endDate , setEndDate] = useState('')

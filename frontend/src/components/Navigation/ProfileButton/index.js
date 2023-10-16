@@ -53,10 +53,10 @@ function ProfileButton() {
         {showMenu ? (
           <div className="dropdown-content">
             <div className="user-drop-down">
-              <button onClick={handleModal(true)} className="log-btn">
+              <button onClick={handleModal("login")} className="log-btn">
                 Log In
               </button>
-              <button onClick={handleModal(false)} className="signup-btn">
+              <button onClick={handleModal("signup")} className="signup-btn">
                 Sign Up
               </button>
               <div className="login-line" />

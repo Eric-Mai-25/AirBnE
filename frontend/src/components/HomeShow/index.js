@@ -7,12 +7,15 @@ import "./HomeShow.css";
 import HomeTop from "./HomeShowComponents/HomeTop";
 import HomeShowImages from "./HomeShowComponents/HomeShowImages";
 import HomeShowMain from "./HomeShowComponents/HomeShowMain";
+import HomeShowReviews from "./HomeShowComponents/HomeShowReviews";
 
 function HomeShow(props) {
   const dispatch = useDispatch();
   const { homeId } = useParams();
   const home = useSelector(getHome(homeId));
   
+  console.log(home, "this bitch is on fire");
+
   useEffect(() => {
       dispatch(fetchHome(homeId));
     }, [homeId]);
@@ -26,22 +29,9 @@ function HomeShow(props) {
             <HomeTop home={home}/>
             <HomeShowImages/>
             <HomeShowMain home={home}/>
+            <HomeShowReviews reviews={home.reviews}/>
         </div>
-
     </div>
-      {/* <h1>{home.title}</h1>
-      <p>{home.property_type}</p>
-      <p>{home.address}</p>
-      <p>{home.aptNum}</p>
-      <p>{home.city}</p>
-      <p>{home.state}</p>
-      <p>{home.country}</p>
-      <p>{home.description}</p>
-      <p>{home.numBeds}</p>
-      <p>{home.numBedrooms}</p>
-      <p>{home.numBathrooms}</p>
-      <p>{home.nightPrice}</p>
-      <p>{home.category}</p> */}
     </>
   );
 }

@@ -54,6 +54,10 @@ class Home < ApplicationRecord
             foreign_key: :home_id,
             dependent: :destroy,
             inverse_of: :home
+
+  has_many :reviews,
+            dependent: :destroy,
+            inverse_of: :home
             
 
              

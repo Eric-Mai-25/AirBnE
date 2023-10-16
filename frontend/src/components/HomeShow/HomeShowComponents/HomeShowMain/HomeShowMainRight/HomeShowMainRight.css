@@ -1,5 +1,8 @@
 .reserve-box {
   display: flex;
+  position: sticky;
+  top: 6rem;
+  align-items: flex-start;
   height: 500px;
   flex: auto;
   margin-top: 2rem;
