@@ -12,7 +12,6 @@ function ReservationDataLeft({ data }) {
   const [checkOut, setCheckOut] = useState(data.checkOut);
   const [guests, setGuests] = useState(data.guests);
   const history = useHistory()
- console.log(data)
 
   const handleSubmit = (e) => {
     e.preventDefault();

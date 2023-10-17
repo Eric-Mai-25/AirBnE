@@ -5,7 +5,8 @@ import SignupFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import HomesIndex from "./components/HomesIndex";
 import HomeShow from "./components/HomeShow";
-import ReservationShow from "./components/ReservationShow";
+import ReservationCreate from "./components/ReservationCreate";
+import ReviewCreate from "./components/ReviewCreate";
 
 function App() {
   return (
@@ -19,7 +20,10 @@ function App() {
           <HomeShow />
         </Route>
         <Route exact path="/stays/:homeId">
-          <ReservationShow />
+          <ReservationCreate />
+        </Route>
+        <Route exact path="/reviews/:homeId">
+          <ReviewCreate/>
         </Route>
       </Switch>
     </>

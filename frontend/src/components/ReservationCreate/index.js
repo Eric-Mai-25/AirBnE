@@ -5,7 +5,7 @@ import ReservationDataRight from "./ReservationDataRight";
 import ReservationDataLeft from "./ReservationDataLeft";
 import "./ReservationShow.css"
 
-function ReservationShow() {
+function ReservationCreate() {
   const reserveData = JSON.parse(localStorage.getItem("reserve"));
 
   return (
@@ -27,4 +27,4 @@ function ReservationShow() {
   );
 }
 
-export default ReservationShow;
+export default ReservationCreate;
