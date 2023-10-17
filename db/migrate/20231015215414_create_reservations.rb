@@ -6,6 +6,7 @@ class CreateReservations < ActiveRecord::Migration[7.0]
       t.date :check_in_date
       t.date :check_out_date
       t.float :total_price
+      t.integer :guests
       t.string :reservation_status
       t.timestamps
     end

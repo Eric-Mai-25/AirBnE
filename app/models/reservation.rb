@@ -8,6 +8,7 @@
 #  check_in_date      :date
 #  check_out_date     :date
 #  total_price        :float
+#  guests             :integer
 #  reservation_status :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
