@@ -27,6 +27,7 @@
     background: #fff;
     padding-left: 1rem;
     padding-right: 1rem;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;

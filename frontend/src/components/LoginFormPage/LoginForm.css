@@ -1,17 +1,16 @@
-form {
+.modal-form {
   max-width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
   padding-left: 1rem;
   padding-right: 1rem;
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 .form-box {
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-bottom: 1rem;
+  
 }
 
 .form-box:focus-within label {

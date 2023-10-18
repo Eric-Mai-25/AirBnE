@@ -40,7 +40,7 @@ function LoginFormPage({ hide }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="modal-form" onSubmit={handleSubmit}>
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>

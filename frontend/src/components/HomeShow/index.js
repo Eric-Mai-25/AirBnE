@@ -14,11 +14,10 @@ function HomeShow(props) {
   const { homeId } = useParams();
   const home = useSelector(getHome(homeId));
   
-  // console.log(home, "this bitch is on fire");
 
   useEffect(() => {
       dispatch(fetchHome(homeId));
-    }, [homeId]);
+    }, []);
     
     if(!home) return <p>Loading...</p>
 

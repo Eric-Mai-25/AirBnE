@@ -1,11 +1,27 @@
 import csrfFetch from "./csrf";
 
 export const RECEIVE_RESERVATION = "reservations/RECEIVE_RESERVATION";
+export const ADD_RESERVATION = "reservations/ADD_RESERVATION";
+export const CLEAR_RESERVATION = "reservations/CLEAR_RESERVATION";
 
 const load = (reservation) => {
   return {
     type: RECEIVE_RESERVATION,
     reservation,
+  };
+};
+
+export const addReservation = (reserve) => {
+  return {
+    type: ADD_RESERVATION,
+    reserve,
+  };
+};
+
+export const clearReservation = (reserve) => {
+  return {
+    type: CLEAR_RESERVATION,
+    reserve,
   };
 };
 
@@ -37,6 +53,12 @@ const reserveReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_RESERVATION:
       nextState[action.reservation.id] = action.reservation;
+      return nextState;
+    case ADD_RESERVATION:
+      nextState.reserveData = action.reserve;
+      return nextState;
+    case CLEAR_RESERVATION:
+      nextState.reserveData = null;
       return nextState;
     default:
       return state;
