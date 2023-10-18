@@ -1,0 +1,35 @@
+.reviews-box {
+  padding: 0rem 10%;
+}
+
+.total-review-data {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.review-map {
+  display: flex;
+  flex-wrap: wrap;
+}
+.review-map > div {
+  flex: 50%;
+}
+.review-box {
+  width: 100%;
+  height: 10rem;
+}
+.review-profile-data {
+  display: flex;
+  align-items: center;
+}
+
+.review-profile-data h4 {
+  margin: 0px;
+}
+
+.review-prof-image {
+  width: 50px;
+  border-radius: 50px;
+  height: 50px;
+}

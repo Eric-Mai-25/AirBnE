@@ -1,0 +1,29 @@
+
+
+.edit-date, .pay-radio , .pay-desc{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-type{
+    
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+    /* height: 4.5rem; */
+}
+
+.pay-radio h4{
+    margin: 0px;
+}
+
+.pay-radio{
+    padding: 1rem 1rem 0rem 1rem;
+}
+.pay-desc{
+    padding: 0rem 1rem 1rem 1rem;
+}
+
+.login-needed{
+    padding: 1rem 0rem 5rem 0rem;
+}

@@ -1,4 +1,5 @@
 import csrfFetch from './csrf';
+import { allReviews } from './review';
 
 export const RECEIVE_HOMES = 'homes/RECEIVE_HOMES'
 export const RECEIVE_HOME = 'homes/RECEIVE_HOME'
@@ -38,8 +39,9 @@ export const  fetchHomes = () => async dispatch =>{
 export const  fetchHome = (homeId) => async dispatch =>{
     const response = await csrfFetch(`/api/homes/${homeId}`)
     if(response.ok){
-        const home = await response.json()
-        dispatch(load(home))
+        const data = await response.json()
+        dispatch(load(data.home))
+        dispatch(allReviews(data.reviews))
     }
 }
 

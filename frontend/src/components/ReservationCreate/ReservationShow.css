@@ -10,3 +10,29 @@
 .reserve-right{
     width: 45%;
 }
+
+.reserve-title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.header-reserve{
+    padding: 0rem 10%;
+}
+.back-link{
+    display: block;
+    position: absolute;
+    margin-left: 5%;
+}
+
+.back-button{
+    padding:  1rem;
+    border-radius: 30px;
+}
+
+.back-button:hover{
+    transition: all 0.3s;
+    background: var(--light-grey);
+}

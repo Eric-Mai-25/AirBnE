@@ -28,7 +28,7 @@ function HomeShow(props) {
             <HomeTop home={home}/>
             <HomeShowImages/>
             <HomeShowMain home={home}/>
-            <HomeShowReviews reviews={home.reviews}/>
+            <HomeShowReviews/>
         </div>
     </div>
     </>
