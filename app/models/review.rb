@@ -13,13 +13,14 @@
 #  value           :integer          not null
 #  public_comment  :text             not null
 #  private_comment :text
+#  rating          :float            not null
 #  review_date     :date             not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 class Review < ApplicationRecord
 
-    validates :cleanliness, :communication, :check_in, :accuracy, :location, :value, :public_comment, :review_date, presence: true
+    validates :cleanliness, :communication, :check_in, :accuracy, :location, :value, :public_comment, :review_date, :rating, presence: true
 
     belongs_to :author,
         class_name: :User,

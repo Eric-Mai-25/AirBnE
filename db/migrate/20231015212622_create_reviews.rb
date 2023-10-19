@@ -11,6 +11,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.integer :value, null: false
       t.text :public_comment, null: false 
       t.text :private_comment
+      t.float :rating, null:false
       t.date :review_date, null: false 
       t.timestamps
     end

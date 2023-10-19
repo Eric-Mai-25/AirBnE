@@ -7,7 +7,7 @@ import { GoShare } from "react-icons/go";
 
 import "./HomeTop.css";
 
-function HomeTop({ home }) {
+function HomeTop({ home , rating, numReview}) {
   const isSuper = true;
 
   return (
@@ -17,8 +17,8 @@ function HomeTop({ home }) {
         <div className="header-rating">
           <div className="header-left">
             <AiFillStar />
-            <span>4.94</span>
-            <span>· 300 reviews</span>
+            <span>{rating}</span>
+            <span>· {numReview} Reviews</span>
             {isSuper ? <span>· </span> : null}
             {isSuper ? (<TbMoneybag /> ): null}
             {isSuper ? <span>Superhost</span> : null}

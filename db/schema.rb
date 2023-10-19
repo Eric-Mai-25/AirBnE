@@ -78,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_15_215414) do
     t.integer "value", null: false
     t.text "public_comment", null: false
     t.text "private_comment"
+    t.float "rating", null: false
     t.date "review_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import "./HomeShowMainRight.css";
+import {AiFillStar} from "react-icons/ai"
 import { addReservation } from "../../../../../store/reserve";
 
-function HomeShowMainRight({ home }) {
+function HomeShowMainRight({ home ,rating, numReview }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [checkIn, setCheckIn] = useState("");
@@ -45,7 +46,12 @@ function HomeShowMainRight({ home }) {
       <div className="reserve-box">
         <div className="reserve-header">
           <h3 className="reserve-header-price">${home.nightPrice} night</h3>
-          <span className="reserve-header-rating">rating</span>
+
+          <span className="reserve-header-rating">
+            <AiFillStar />
+            <span className="reserve-rating">{rating} </span>
+            <span className="reserve-review"> · {numReview} Reviews</span>
+          </span>
         </div>
         <form className="modal-form">
           <div className="checkinout">

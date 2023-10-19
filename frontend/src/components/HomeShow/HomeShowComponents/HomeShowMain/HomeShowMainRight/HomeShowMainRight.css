@@ -153,3 +153,16 @@
 .total-price {
   padding-bottom: 2rem;
 }
+
+.reserve-rating{
+  font-weight: bold;
+}
+.reserve-header-rating{
+  display: flex;
+  align-items: center;
+}
+
+.reserve-review{
+  margin-left: 3px;
+}
+ 

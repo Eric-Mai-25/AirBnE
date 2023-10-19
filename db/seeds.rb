@@ -101,6 +101,7 @@ ApplicationRecord.transaction do
       public_comment: Faker::Lorem.paragraph,
       private_comment: Faker::Lorem.paragraph,
       review_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
+      rating: Faker::Number.decimal(r_digits: 1),
       created_at: Faker::Time.between(from: 2.years.ago, to: Time.zone.now),
       updated_at: Faker::Time.between(from: 2.years.ago, to: Time.zone.now),
     )

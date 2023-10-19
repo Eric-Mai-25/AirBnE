@@ -13,24 +13,28 @@ function HomeShow(props) {
   const dispatch = useDispatch();
   const { homeId } = useParams();
   const home = useSelector(getHome(homeId));
-  
+
+  const reviews = useSelector((state) => Object.values(state.reviews));
+  let allRating = 0;
+  reviews.forEach((review) => (allRating += review.rating));
+  let finalrating = Number(allRating / reviews.length).toFixed(1);
 
   useEffect(() => {
-      dispatch(fetchHome(homeId));
-    }, []);
-    
-    if(!home) return <p>Loading...</p>
+    dispatch(fetchHome(homeId));
+  }, []);
+
+  if (!home) return <p>Loading...</p>;
 
   return (
     <>
-    <div className="show-page">
+      <div className="show-page">
         <div>
-            <HomeTop home={home}/>
-            <HomeShowImages/>
-            <HomeShowMain home={home}/>
-            <HomeShowReviews/>
+          <HomeTop home={home} rating={finalrating} numReview={reviews.length}/>
+          <HomeShowImages />
+          <HomeShowMain home={home} rating={finalrating} numReview={reviews.length}/>
+          <HomeShowReviews />
         </div>
-    </div>
+      </div>
     </>
   );
 }
