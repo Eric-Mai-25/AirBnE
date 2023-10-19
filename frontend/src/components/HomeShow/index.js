@@ -30,7 +30,7 @@ function HomeShow(props) {
       <div className="show-page">
         <div>
           <HomeTop home={home} rating={finalrating} numReview={reviews.length}/>
-          <HomeShowImages />
+          <HomeShowImages home={home} />
           <HomeShowMain home={home} rating={finalrating} numReview={reviews.length}/>
           <HomeShowReviews />
         </div>

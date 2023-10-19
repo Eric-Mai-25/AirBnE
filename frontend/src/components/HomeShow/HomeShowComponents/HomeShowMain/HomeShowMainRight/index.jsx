@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import "./HomeShowMainRight.css";
-import {AiFillStar} from "react-icons/ai"
+import { AiFillStar } from "react-icons/ai";
 import { addReservation } from "../../../../../store/reserve";
 
-function HomeShowMainRight({ home ,rating, numReview }) {
+function HomeShowMainRight({ home, rating, numReview }) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
+
+  let today = getDate(0);
+  let tommorrow = getDate(2);
+
+  const [checkIn, setCheckIn] = useState(today);
+  const [checkOut, setCheckOut] = useState(tommorrow);
+
   const [guests, setGuests] = useState(0);
-  const [numNights, setNumNights] = useState(3);
+  const [numNights, setNumNights] = useState(2);
   const [price, setPrice] = useState(home.nightPrice * numNights);
 
   const data = {
@@ -20,13 +25,23 @@ function HomeShowMainRight({ home ,rating, numReview }) {
     guests,
   };
 
-  localStorage.setItem("reserve", JSON.stringify(data));
+  // localStorage.setItem("reserve", JSON.stringify(data));÷
 
   const handleCheckIn = (e) => {
     setCheckIn(e.target.value);
+    let daysBetween = Math.floor(
+      (Date.parse(checkOut) - Date.parse(e.target.value)) / 86400000
+    );
+    setNumNights(daysBetween);
+    setPrice(home.nightPrice * numNights);
   };
   const handleCheckOut = (e) => {
     setCheckOut(e.target.value);
+    let daysBetween = Math.floor(
+      (Date.parse(e.target.value) - Date.parse(checkIn)) / 86400000
+    );
+    setNumNights(daysBetween);
+    setPrice(home.nightPrice * numNights);
   };
   const handleGuests = (e) => {
     setGuests(e.target.value);
@@ -56,11 +71,21 @@ function HomeShowMainRight({ home ,rating, numReview }) {
         <form className="modal-form">
           <div className="checkinout">
             <div className="reserve-form-box check-in">
-              <input type="date" onChange={handleCheckIn} required />
+              <input
+                type="date"
+                onChange={handleCheckIn}
+                value={checkIn}
+                required
+              />
               <label className={"filled"}>Check-in</label>
             </div>
             <div className="reserve-form-box check-out">
-              <input type="date" onChange={handleCheckOut} required />
+              <input
+                type="date"
+                onChange={handleCheckOut}
+                value={checkOut}
+                required
+              />
               <label className={"filled"}>Check-out</label>
             </div>
           </div>
@@ -82,7 +107,7 @@ function HomeShowMainRight({ home ,rating, numReview }) {
           <div className="pricing-data">
             <div className="night-sum">
               <span>
-                {home.nightPrice} X {numNights} nights
+                ${home.nightPrice} x {numNights} nights
               </span>
               <span>${price}</span>
             </div>
@@ -107,3 +132,20 @@ function HomeShowMainRight({ home ,rating, numReview }) {
 }
 
 export default HomeShowMainRight;
+
+function getDate(n) {
+  var today = new Date();
+  var dd = today.getDate() + n;
+  var mm = today.getMonth() + 1; //January is 0!
+  var yyyy = today.getFullYear();
+
+  if (dd < 10) {
+    dd = "0" + dd;
+  }
+
+  if (mm < 10) {
+    mm = "0" + mm;
+  }
+
+  return yyyy + "-" + mm + "-" + dd;
+}

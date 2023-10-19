@@ -5,6 +5,7 @@ ruby "3.1.1"
 
 gem "faker"
 gem "bcrypt"
+gem "aws-sdk-s3"
 
 gem "jbuilder"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

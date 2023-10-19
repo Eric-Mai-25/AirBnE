@@ -14,10 +14,13 @@ function HomeShowReviews() {
   // if (!reviews) return <p>Loading Reviews</p>;
   // let allReviews = Object.values(reviews);
   const reviews = useSelector((state) => Object.values(state.reviews));
-  let allRating = 0
-  reviews.forEach(review => allRating += review.rating)
-  let finalrating = Number(allRating/reviews.length).toFixed(1)
+  let allRating = 0;
   let reviewCount = reviews.length;
+  let finalrating =0 ;
+  if (reviews.length > 0){
+    reviews.forEach((review) => (allRating += review.rating));
+    finalrating = Number(allRating / reviews.length).toFixed(1);
+  }
 
   const reviewToStore = (review) => (e) => {
     dispatch(add(review));
@@ -35,7 +38,9 @@ function HomeShowReviews() {
       <div className="reviews-box">
         <div className="total-review-data">
           <AiFillStar />
-          <h3>{finalrating} · {reviewCount} reviews</h3>
+          <h3>
+            {finalrating} · {reviewCount} reviews
+          </h3>
         </div>
         <div className="review-map">
           {reviews.map((review) => {
@@ -74,7 +79,17 @@ function HomeShowReviews() {
         </Link>
       </div>
     </>
-  ) : null;
+  ) : (
+    <>
+      <div className="reviews-box">
+        <div className="total-review-data">
+          <h3>
+            {reviewCount} reviews
+          </h3>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default HomeShowReviews;
