@@ -32,13 +32,12 @@
 #  has_fireplace :boolean          default(FALSE), not null
 #
 class Home < ApplicationRecord
-  CATEGORIES = ["beachfront", "countryside", "cabin", "mansion", "lakefront", "amazing views", "tiny home", "modern", "barn", "omg"]
+  # CATEGORIES = ["beachfront", "countryside", "cabin", "mansion", "lakefront", "amazing views", "tiny home", "modern", "barn", "omg"]
 
   PROPERTY_TYPES = ["House", "Apartment", "Studio", "Cabin", "Private Room"]
 
   validates :host_id, :address, :city, :state, :country, :title, :description, :longitude, :latitude, presence: true
   validates :property_type, inclusion: { in: PROPERTY_TYPES }
-  validates :category, inclusion: { in: CATEGORIES }
   validates :has_wifi, :has_pets, :has_kitchen, :has_ac, :has_heat, :has_tv, :has_parking, :has_fireplace, inclusion: [true, false]
   validates :num_beds, :num_bedrooms, :num_bathrooms, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :night_price, presence: true, numericality: { greater_than: 0 }
@@ -50,15 +49,17 @@ class Home < ApplicationRecord
              foreign_key: :host_id
 
   has_many :reservations,
-            class_name: :Reservation,
-            foreign_key: :home_id,
-            dependent: :destroy,
-            inverse_of: :home
+           class_name: :Reservation,
+           foreign_key: :home_id,
+           dependent: :destroy,
+           inverse_of: :home
 
   has_many :reviews,
-            dependent: :destroy,
-            inverse_of: :home
-            
+           dependent: :destroy,
+           inverse_of: :home
 
-             
+  has_many_attached :images
+
+  has_one_attached :photo
+
 end

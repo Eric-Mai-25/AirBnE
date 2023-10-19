@@ -21,7 +21,6 @@ function HomeShowMainLeft({ home }) {
         </div>
       </div>
       <div className="left-title-box description">
-        <h3>Other things note</h3>
         <p>{home.description}</p>
       </div>
       <div className="bedroom-box">

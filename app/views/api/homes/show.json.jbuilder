@@ -1,5 +1,6 @@
 json.home do
   json.merge! @home.attributes
+  json.photoUrls @home.images.attached? ? @home.images.map { |photo| url_for(photo) } : []
 end
 
 

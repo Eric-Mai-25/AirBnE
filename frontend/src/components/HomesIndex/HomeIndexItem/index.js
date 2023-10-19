@@ -3,19 +3,20 @@ import sampleHotel from "../../../assets/hotels/hotel-1.jpeg";
 import "./HomeIndexItem.css";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 function HomeIndexItem({ home }) {
-
-
   const handleCardClick = e =>{
-
+    
   }
-
+  if(!home) return (<div>loading</div>)
+  
   return (
     <>
       <Link to={`/homes/${home.id}`} className="card">
-        <img src={sampleHotel} className="card-img" />
+        {console.log(home)}
+        <img src={home.photoUrls[0]} className="card-img" />
         <div className="card-info">
           <p className="card-title">{home.title}</p>
           <div className="card-rating">

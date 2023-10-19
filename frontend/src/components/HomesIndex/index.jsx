@@ -20,6 +20,8 @@ function HomesIndex(props) {
     setSelectedFilter(index);
   };
 
+  if(!homes) return null
+
   return (
     <>
       <div className="nav-filter">
