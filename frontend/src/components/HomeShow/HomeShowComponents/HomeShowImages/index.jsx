@@ -9,7 +9,6 @@ import "./HomeShowImages.css";
 
 function HomeShowImages({home}) {
 
-  console.log( home)
   if (!home) return null
   return (
     <>

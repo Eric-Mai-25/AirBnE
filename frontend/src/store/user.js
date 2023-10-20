@@ -16,7 +16,6 @@ export const getUser = (userId) => (state) => {
 };
 
 export const fetchUser = (guestId) => async (dispatch) => {
-    console.log("here")
   const response = await csrfFetch(`/api/users/${guestId}`);
   if (response.ok) {
     const data = await response.json();
