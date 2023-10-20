@@ -10,7 +10,7 @@ function SignupFormPage() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
-  const [profile_picture, setProfilePicture] = useState("img.url");
+  // const [profile_picture, setProfilePicture] = useState("img.url");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -25,7 +25,7 @@ function SignupFormPage() {
         sessionActions.signup({
           email,
           phone_number,
-          profile_picture,
+          profile_picture: "https://xsgames.co/randomusers/avatar.php?g=male",
           username,
           password,
         })

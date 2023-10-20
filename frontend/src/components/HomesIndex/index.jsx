@@ -47,7 +47,7 @@ function HomesIndex(props) {
       </div>
       <div className="card-box">
         {homes.map((home, i) => (
-          <HomeIndexItem home={home} />
+          <HomeIndexItem key={i} home={home} />
         ))}
       </div>
     </>

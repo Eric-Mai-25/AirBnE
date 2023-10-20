@@ -36,5 +36,8 @@
 }
 
 .link-icon {
+  display: flex;
   padding: 0rem 0.5rem;
+  justify-content: center;
+  align-items: center;
 }

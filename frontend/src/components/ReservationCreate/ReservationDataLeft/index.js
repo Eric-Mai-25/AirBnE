@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../../../store/reserve";
 import { useParams } from "react-router-dom";
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link} from "react-router-dom";
 import "./ReservationDataLeft.css";
 import LoginFormPage from "../../LoginFormPage";
 
@@ -25,9 +25,9 @@ function ReservationDataLeft({ data }) {
   const dispatch = useDispatch();
   const { homeId } = useParams();
   const user = useSelector((state) => state.session.user);
-  const [checkIn, setCheckIn] = useState(data.checkIn);
-  const [checkOut, setCheckOut] = useState(data.checkOut);
-  const [guests, setGuests] = useState(data.guests);
+  const [checkIn] = useState(data.checkIn);
+  const [checkOut] = useState(data.checkOut);
+  const [guests] = useState(data.guests);
 
   const handleClick = (e) => {
     const reserveData = {

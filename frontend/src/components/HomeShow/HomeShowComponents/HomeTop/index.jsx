@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom/";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { TbMoneybag } from "react-icons/tb";
 import { GoShare } from "react-icons/go";
@@ -19,7 +16,7 @@ function HomeTop({ home, rating, numReview }) {
             {rating !== "NaN" ? (
               <>
                 <AiFillStar />
-                <span>{rating} ·</span>
+                <span>{rating} · </span>
               </>
             ) : null}
             <span>{numReview} Reviews</span>

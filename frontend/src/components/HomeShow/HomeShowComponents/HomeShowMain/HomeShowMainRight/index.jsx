@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch} from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import "./HomeShowMainRight.css";
 import { AiFillStar } from "react-icons/ai";
-import { addReservation } from "../../../../../store/reserve";
+// import { addReservation } from "../../../../../store/reserve";
+import { add } from "../../../../../store/reviewSession";
 
 function HomeShowMainRight({ home, rating, numReview }) {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ function HomeShowMainRight({ home, rating, numReview }) {
       checkOut,
       guests,
     };
-    dispatch(addReservation(data));
+    dispatch(add(data));
   };
 
   return (

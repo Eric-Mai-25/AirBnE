@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ReservationDataRight from "./ReservationDataRight";
 import ReservationDataLeft from "./ReservationDataLeft";
@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 
 function ReservationCreate() {
   const { homeId } = useParams();
-  const statedata = useSelector((state) => state.reservations.reserveData);
+  const statedata = useSelector((state) => state.reviewSession.currentReview);
   // const statedata = useSelector((state) => console.log(state));
   // const reserveData = JSON.parse(localStorage.getItem("reserve"));
   if (!statedata) return <div>Loading</div>;
