@@ -44,7 +44,7 @@ class User < ApplicationRecord
 
   has_many :reviews,
     class_name: :Review,
-    foreign_key: :review_id,
+    foreign_key: :author_id,
     dependent: :destroy
 
   def self.find_by_credentials(email, password)

@@ -1,7 +1,7 @@
 class Api::HomesController < ApplicationController
 
 
-  def categories
+def categories
     render json: Home::CATEGORIES
 end
 

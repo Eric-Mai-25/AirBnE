@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../../../store/reserve";
 import { useParams } from "react-router-dom";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./ReservationDataLeft.css";
 import LoginFormPage from "../../LoginFormPage";
 
 function ReservationDataLeft({ data }) {
-
   const MONTH = {
     1: "Jan",
     2: "Feb",
@@ -21,7 +20,7 @@ function ReservationDataLeft({ data }) {
     10: "Oct",
     11: "Nov",
     12: "Dec",
-  }
+  };
 
   const dispatch = useDispatch();
   const { homeId } = useParams();
@@ -29,11 +28,8 @@ function ReservationDataLeft({ data }) {
   const [checkIn, setCheckIn] = useState(data.checkIn);
   const [checkOut, setCheckOut] = useState(data.checkOut);
   const [guests, setGuests] = useState(data.guests);
-  const history = useHistory();
 
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleClick = (e) => {
     const reserveData = {
       check_in_date: checkIn,
       check_out_date: checkOut,
@@ -43,24 +39,25 @@ function ReservationDataLeft({ data }) {
       reservation_status: "pending",
     };
     dispatch(createReservation(reserveData));
-    history.push("/");
   };
 
   let isLogged;
 
   if (!user) {
-    isLogged = <>
-      <div className="login-needed">
-        <h4>Log in or sign up to book </h4>
-        <LoginFormPage/>
-      </div>
-    </>;
+    isLogged = (
+      <>
+        <div className="login-needed">
+          <h4>Log in or sign up to book </h4>
+          <LoginFormPage />
+        </div>
+      </>
+    );
   } else
     isLogged = (
       <>
-        <form onSubmit={handleSubmit} className="left-data">
-          <button className="login-button">Reserve Now</button>
-        </form>
+        <Link to={`/reservations/${user.id}`}>
+            <button  onClick={handleClick} className="login-button">Reserve Now</button>
+        </Link>
       </>
     );
 
@@ -76,7 +73,8 @@ function ReservationDataLeft({ data }) {
         </div>
         <div>
           <span>
-            {MONTH[checkIn.split("-")[1]]} {checkIn.split("-")[2]} - {MONTH[checkOut.split("-")[1]]}  {checkOut.split("-")[2]}{" "}
+            {MONTH[checkIn.split("-")[1]]} {checkIn.split("-")[2]} -{" "}
+            {MONTH[checkOut.split("-")[1]]} {checkOut.split("-")[2]}{" "}
           </span>
         </div>
       </div>
