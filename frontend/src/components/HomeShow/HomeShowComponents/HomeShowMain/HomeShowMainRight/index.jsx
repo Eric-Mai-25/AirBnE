@@ -63,9 +63,13 @@ function HomeShowMainRight({ home, rating, numReview }) {
           <h3 className="reserve-header-price">${home.nightPrice} night</h3>
 
           <span className="reserve-header-rating">
-            <AiFillStar />
-            <span className="reserve-rating">{rating} </span>
-            <span className="reserve-review"> · {numReview} Reviews</span>
+            {rating !== "NaN" ? (
+              <>
+                <AiFillStar />
+                <span className="reserve-rating">{rating} ·</span>
+              </>
+            ) : null}
+            <span className="reserve-review"> {numReview} Reviews</span>
           </span>
         </div>
         <form className="modal-form">

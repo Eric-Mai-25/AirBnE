@@ -7,6 +7,7 @@ import { PiUserCircleFill } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
 import "./ProfileButton.css";
 import Modal from "../../Modal";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function ProfileButton() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -59,7 +60,7 @@ function ProfileButton() {
               <button onClick={handleModal("signup")} className="signup-btn">
                 Sign Up
               </button>
-              <div className="login-line" />
+              {/* <div className="login-line" /> */}
             </div>
           </div>
         ) : (
@@ -73,17 +74,22 @@ function ProfileButton() {
         {showMenu ? (
           <div className="dropdown-content">
             <div className="user-drop-down">
-              <button className="log-btn">Messages</button>
-              <button style={{ "font-weight": "bold" }} className="signup-btn">
-                Trips
-              </button>
-              <button style={{ "font-weight": "bold" }} className="signup-btn">
+              {/* <button className="log-btn">Messages</button> */}
+              <Link to={`/reservations/${sessionUser.id}`}>
+                <button
+                  style={{ "font-weight": "bold" }}
+                  className="signup-btn"
+                >
+                  Trips
+                </button>
+              </Link>
+              {/* <button style={{ "font-weight": "bold" }} className="signup-btn">
                 Wishlists
-              </button>
+              </button> */}
               <div className="login-line" />
-              <button className="signup-btn">Airbne your home</button>
-              <button className="signup-btn">Account</button>
-              <div className="login-line" />
+              {/* <button className="signup-btn">Airbne your home</button>
+              <button className="signup-btn">Account</button> */}
+              {/* <div className="login-line" /> */}
               <button onClick={logout} className="logout-btn">
                 Log Out
               </button>

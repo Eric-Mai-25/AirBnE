@@ -16,23 +16,16 @@ function HomeShowReviews() {
   const reviews = useSelector((state) => Object.values(state.reviews));
   let allRating = 0;
   let reviewCount = reviews.length;
-  let finalrating =0 ;
-  if (reviews.length > 0){
+  let finalrating = 0;
+  if (reviews.length > 0) {
     reviews.forEach((review) => (allRating += review.rating));
     finalrating = Number(allRating / reviews.length).toFixed(1);
   }
-
-  const reviewToStore = (review) => (e) => {
-    dispatch(add(review));
-  };
 
   const createReview = (e) => {
     dispatch(clear());
   };
 
-  const deleteReview = (reviewId) => (e) => {
-    dispatch(removeReview(reviewId));
-  };
   return reviews.length ? (
     <>
       <div className="reviews-box">
@@ -57,35 +50,26 @@ function HomeShowReviews() {
                   <div>
                     <div>{review.publicComment}</div>
                   </div>
-                  <div>
-                    <Link to={`/reviews/${homeId}`}>
-                      <button onClick={reviewToStore(review)}>
-                        {" "}
-                        Edit Review{" "}
-                      </button>
-                    </Link>
-                    <button onClick={deleteReview(review.id)}>
-                      Delete Review
-                    </button>
-                  </div>
                 </div>
               </div>
             );
           })}
         </div>
-        <button>Show All {reviewCount} Reviews</button>
-        <Link to={`/reviews/${homeId}`}>
-          <button onClick={createReview}>Create Review</button>
-        </Link>
+        {/* <button>Show All {reviewCount} Reviews</button> */}
+        <div className="review-create-box">
+          <Link to={`/reviews/${homeId}`}>
+            <button className="review-create" onClick={createReview}>
+              Create Review
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   ) : (
     <>
       <div className="reviews-box">
         <div className="total-review-data">
-          <h3>
-            {reviewCount} reviews
-          </h3>
+          <h3>{reviewCount} reviews</h3>
         </div>
       </div>
     </>

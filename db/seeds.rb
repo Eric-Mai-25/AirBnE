@@ -13,7 +13,27 @@ require "open-uri"
 CATEGORIES = ["beachfront", "countryside", "cabin", "mansion", "lakefront", "amazing views", "tiny home", "modern", "barn", "omg"]
 PROPERTY_TYPES = ["House", "Apartment", "Studio", "Cabin", "Private Room"]
 PROFILE_PICTURES = ["https://xsgames.co/randomusers/avatar.php?g=male", "https://xsgames.co/randomusers/avatar.php?g=female"]
-
+REVIEW_ARRAY= [
+  "Our stay at this Airbnb was absolutely delightful. The cozy atmosphere and thoughtful amenities made us feel right at home. The host's communication was top-notch, and we can't wait to come back!",
+  "The location of this Airbnb was perfect for exploring the city. The cleanliness and modern decor exceeded our expectations. We had a fantastic time, and the host was incredibly accommodating.",
+  "This Airbnb was a hidden gem! The breathtaking views from the balcony left us in awe. We enjoyed a peaceful and relaxing weekend getaway, and the host's attention to detail was impeccable.",
+  "The host was super friendly and accommodating. The property was immaculate, and the neighborhood had a great vibe. We'll definitely be returning here!",
+  "We had a wonderful family vacation at this Airbnb. The spacious living area and well-equipped kitchen were perfect for us. The outdoor space was a hit with the kids, and we made unforgettable memories.",
+  "The pictures don't do this Airbnb justice – it's even more beautiful in person. The host was gracious and helpful throughout our stay, and the location was ideal for exploring the local attractions.",
+  "Staying at this Airbnb felt like a dream. The interior design was impeccable, and the view of the ocean was breathtaking. We couldn't have asked for a more perfect vacation spot.",
+  "Our group of friends had an amazing time at this Airbnb. The open layout and stylish decor made it a comfortable and chic place to stay. We're already planning our next trip back!",
+  "The host went above and beyond to make our stay memorable. The Airbnb was clean, cozy, and conveniently located near all the hotspots. We highly recommend this place!",
+  "This Airbnb was a peaceful retreat from the city. The backyard garden was a lovely spot to relax, and the host's hospitality made us feel right at home.",
+  "The location couldn't have been better for our business trip. The Airbnb was clean and well-equipped, and the host's recommendations for local restaurants were spot on.",
+  "We were blown away by the charm of this historic Airbnb. The attention to detail in preserving its character was impressive. The host was warm and welcoming, making our stay exceptional.",
+  "Our stay at this Airbnb was pure relaxation. The hot tub and outdoor patio were our favorite features, and the host was attentive and responsive to our needs.",
+  "The host was incredibly helpful and provided excellent local tips. The Airbnb itself was modern and comfortable, with everything we needed for a wonderful vacation.",
+  "This Airbnb had all the comforts of home. The kitchen was well-stocked, the beds were comfy, and the location was perfect for exploring the city. We'd definitely stay here again.",
+  "Our family had a fantastic time at this Airbnb. The pool and outdoor grill made it a perfect summer getaway. The host was friendly and made sure our stay was enjoyable.",
+  "This Airbnb exceeded our expectations in every way. The stunning views, the cozy fireplace, and the well-equipped kitchen made our stay unforgettable.",
+  "The host was a great communicator and made our check-in seamless. The Airbnb was spotless, and the central location made it easy to explore the area.",
+  "We had a wonderful romantic getaway at this Airbnb. The private setting, the luxurious amenities, and the attentive host made it a perfect escape.",
+]
 HOMES_ARRAY = listings = [
   {
     title: "Serene Mountain Retreat",
@@ -294,7 +314,7 @@ ApplicationRecord.connection.reset_pk_sequence!("reviews")
     accuracy: Faker::Number.between(from: 1, to: 5),
     location: Faker::Number.between(from: 1, to: 5),
     value: Faker::Number.between(from: 1, to: 5),
-    public_comment: Faker::Lorem.paragraph,
+    public_comment: REVIEW_ARRAY.sample,
     private_comment: Faker::Lorem.paragraph,
     review_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
     rating: Faker::Number.between(from: 1.0, to: 5.0),

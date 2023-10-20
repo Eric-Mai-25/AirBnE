@@ -7,7 +7,7 @@ import { GoShare } from "react-icons/go";
 
 import "./HomeTop.css";
 
-function HomeTop({ home , rating, numReview}) {
+function HomeTop({ home, rating, numReview }) {
   const isSuper = true;
 
   return (
@@ -16,11 +16,15 @@ function HomeTop({ home , rating, numReview}) {
         <h1 className="header-title">{home.title}</h1>
         <div className="header-rating">
           <div className="header-left">
-            <AiFillStar />
-            <span>{rating}</span>
-            <span>· {numReview} Reviews</span>
+            {rating !== "NaN" ? (
+              <>
+                <AiFillStar />
+                <span>{rating} ·</span>
+              </>
+            ) : null}
+            <span>{numReview} Reviews</span>
             {isSuper ? <span>· </span> : null}
-            {isSuper ? (<TbMoneybag /> ): null}
+            {isSuper ? <TbMoneybag /> : null}
             {isSuper ? <span>Superhost</span> : null}
             <span>· {home.city},</span>
             <span>{home.state},</span>

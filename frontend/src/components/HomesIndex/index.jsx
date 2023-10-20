@@ -8,21 +8,26 @@ import { getHomes, fetchHomes } from "../../store/home";
 function HomesIndex(props) {
   const dispatch = useDispatch();
   const [selectedFilter, setSelectedFilter] = useState("");
-  const homes = useSelector(getHomes)
+  const homes = useSelector(getHomes);
+  const [allHomes, setAllHomes] = useState(homes)
   
   useEffect(() => {
-    dispatch(fetchHomes())
+    dispatch(fetchHomes());
   }, []);
-
- 
-
-  const handleSelect = (index) => (e) => {
+  
+  
+  const handleSelect = (index, category) => (e) => {
     setSelectedFilter(index);
+    if (category === "All") {
+      setAllHomes(homes);
+    } else {
+      let newHomes = homes.filter((home) => home.category === category);
+      setAllHomes(newHomes);
+    }
   };
 
-  if(!homes) return null
-
-  return (
+  
+  return homes ? (
     <>
       <div className="nav-filter">
         {images.map((icon, index) => {
@@ -32,7 +37,7 @@ function HomesIndex(props) {
               className={
                 index === selectedFilter ? "selected-box" : "filter-box"
               }
-              onClick={handleSelect(index)}
+              onClick={handleSelect(index, icon.category)}
             >
               <img className="filter-img" src={icon.imgSrc} />
               <label className="filter-label">{icon.label}</label>
@@ -42,11 +47,11 @@ function HomesIndex(props) {
       </div>
       <div className="card-box">
         {homes.map((home, i) => (
-          <HomeIndexItem home={home}/>
+          <HomeIndexItem home={home} />
         ))}
       </div>
     </>
-  );
+  ) : null;
 }
 
 export default HomesIndex;
