@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchUser, getUser } from "../../store/user";
+import { fetchUser } from "../../store/user";
 import { removeReview } from "../../store/review";
-import { add, clear } from "../../store/reviewSession";
+import { add } from "../../store/reviewSession";
 import "./ReservationIndex.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -18,7 +18,7 @@ function ReservationIndex() {
 
   useEffect(() => {
     dispatch(fetchUser(userId));
-  }, []);
+  }, [dispatch, userId]);
 
   const reviewToStore = (review) => (e) => {
     dispatch(add(review));
@@ -26,7 +26,7 @@ function ReservationIndex() {
   const deleteReview = (reviewId) => (e) => {
     dispatch(removeReview(reviewId));
   };
-  return (
+  return reservations ? (
     <>
       <div className="reserve-details">
         <div className="user-fate">
@@ -47,6 +47,7 @@ function ReservationIndex() {
                           <img
                             src={reserve.photoUrls[0]}
                             className="reserved-prof-image"
+                            alt=""
                           />
                           <div className="date-info">
                             <h4> {reserve.homeTitle}</h4>
@@ -66,13 +67,13 @@ function ReservationIndex() {
 
           <div className="login-line"></div>
           <div className="left-data">
-              <div className="left-data">
-                <h2>Your review(s)</h2>
-              </div>
+            <div className="left-data">
+              <h2>Your review(s)</h2>
+            </div>
             <div className="reserved">
               {reviews.map((review) => {
                 return (
-                  <div>
+                  <div className="each-reserved">
                     <Link
                       className="reserved-link"
                       to={`/homes/${review.homeId}`}
@@ -83,6 +84,7 @@ function ReservationIndex() {
                             <img
                               src={user.profilePicture}
                               className="review-prof-image"
+                              alt=""
                             />
                             <div className="user-date">
                               <h4> {user.username}</h4>
@@ -97,12 +99,18 @@ function ReservationIndex() {
                     </Link>
                     <div>
                       <Link to={`/reviews/${review.homeId}`}>
-                        <button className="review-create" onClick={reviewToStore(review)}>
+                        <button
+                          className="review-create"
+                          onClick={reviewToStore(review)}
+                        >
                           {" "}
                           Edit Review{" "}
                         </button>
                       </Link>
-                      <button  className="review-create delete" onClick={deleteReview(review.id)}>
+                      <button
+                        className="review-create delete"
+                        onClick={deleteReview(review.id)}
+                      >
                         Delete Review
                       </button>
                     </div>
@@ -117,7 +125,7 @@ function ReservationIndex() {
         </div>
       </div>
     </>
-  );
+  ) : null;
 }
 
 export default ReservationIndex;

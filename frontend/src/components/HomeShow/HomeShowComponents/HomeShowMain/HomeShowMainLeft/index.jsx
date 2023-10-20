@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { LiaBedSolid } from "react-icons/lia";
 import "./HomeShowMainLeft.css";
 
@@ -28,7 +26,7 @@ function HomeShowMainLeft({ home }) {
         <div className="left-title-box beds">
           {[...Array(home.numBedrooms)].map((x, i) => {
             return (
-              <div className="bed-box">
+              <div key={i} className="bed-box">
                 <div className="bed-box-info">
                   <LiaBedSolid className="bedroom-title" size='25px' />
                   <h4 className="bedroom-title">Bedroom {i + 1}</h4>

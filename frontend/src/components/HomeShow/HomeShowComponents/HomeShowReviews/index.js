@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { removeReview } from "../../../../store/review";
-import { add, clear } from "../../../../store/reviewSession";
+import { Link } from "react-router-dom";
+import {clear } from "../../../../store/reviewSession";
 import "./HomeShowReviews.css";
 
 function HomeShowReviews() {
@@ -48,7 +47,7 @@ function HomeShowReviews() {
                     </div>
                   </div>
                   <div>
-                    <div>{review.publicComment}</div>
+                    <div className="review-comment">{review.publicComment}</div>
                   </div>
                 </div>
               </div>

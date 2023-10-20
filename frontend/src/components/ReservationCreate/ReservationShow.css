@@ -13,7 +13,7 @@
 
 .reserve-title{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding-top: 2rem;
 }
