@@ -15,7 +15,6 @@ function HomeIndexItem({ home }) {
   return (
     <>
       <Link to={`/homes/${home.id}`} className="card">
-        {console.log(home)}
         <img src={home.photoUrls[0]} className="card-img" />
         <div className="card-info">
           <p className="card-title">{home.title}</p>

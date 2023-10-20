@@ -12,7 +12,6 @@ function ReservationCreate() {
   const statedata = useSelector((state) => state.reservations.reserveData);
   // const statedata = useSelector((state) => console.log(state));
   // const reserveData = JSON.parse(localStorage.getItem("reserve"));
-  console.log(statedata)
   if (!statedata) return <div>Loading</div>;
   return (
     <>

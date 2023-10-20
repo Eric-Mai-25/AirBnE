@@ -6,8 +6,7 @@ import { fetchUser, getUser } from "../../store/user";
 function ReservationIndex() {
   const dispatch = useDispatch();
   const { userId } = useParams();
-  const userData = useSelector(state=> console.log(state))
-//     console.log(userData)
+  const userData = useSelector(state=> getUser)
 
   useEffect(()=>{
     dispatch(fetchUser(userId))
