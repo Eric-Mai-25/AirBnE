@@ -31,123 +31,153 @@ import nav30 from "./nav_icon/AirBnb30.png";
 
 export const images = [
   {
-    label: "Cabins",
+    label: "All",
+    category: "All",
     imgSrc: nav28,
   },
   {
     label: "Containers",
+    category: "Container",
     imgSrc: nav1,
   },
   {
     label: "Castle",
+    category: "Castle",
     imgSrc: nav2,
   },
   {
     label: "A-frames",
+    category: "Aframe",
     imgSrc: nav3,
   },
   {
     label: "Amazing views",
+    category: "AmazingView",
     imgSrc: nav4,
   },
   {
     label: "Amazing Pools",
+    category: "Pool",
     imgSrc: nav5,
   },
   {
     label: "Treehouses",
+    category: "Tree",
     imgSrc: nav6,
   },
   {
     label: "Windmills",
+    category: "WindMill",
     imgSrc: nav7,
   },
   {
     label: "B&B",
+    category: "BnB",
     imgSrc: nav8,
   },
   {
     label: "Countryside",
+    category: "CountrySide",
     imgSrc: nav9,
   },
   {
     label: "Golfing",
+    category: "Golfing",
     imgSrc: nav10,
   },
   {
     label: "Riads",
+    category: "Riad",
     imgSrc: nav11,
   },
   {
     label: "Creative Area",
+    category: "Creative",
     imgSrc: nav12,
   },
   {
     label: "Artic",
+    category: "Artic",
     imgSrc: nav13,
   },
   {
     label: "Islands",
+    category: "Island",
     imgSrc: nav14,
   },
   {
     label: "Piano",
+    category: "Piano",
     imgSrc: nav15,
   },
   {
     label: "Beach",
+    category: "Beach",
     imgSrc: nav16,
   },
   {
     label: "Campers",
+    category: "Camper",
     imgSrc: nav17,
   },
   {
     label: "Historical",
+    category: "Historical",
     imgSrc: nav18,
   },
   {
     label: "Minsus",
+    category: "Minsus",
     imgSrc: nav19,
   },
   {
     label: "Hanoks",
+    category: "Hannok",
     imgSrc: nav20,
   },
   {
     label: "Vinyards",
+    category: "Vinyard",
     imgSrc: nav21,
   },
   {
     label: "Mansions",
+    category: "Mansion",
     imgSrc: nav22,
   },
   {
     label: "Domes",
+    category: "Dome",
     imgSrc: nav23,
   },
   {
     label: "Scenic",
+    category: "Scenic",
     imgSrc: nav24,
   },
   {
     label: "Casas",
+    category: "Casas",
     imgSrc: nav25,
   },
   {
     label: "Lakefront",
+    category: "LakeFront",
     imgSrc: nav26,
   },
   {
     label: "Boats",
+    category: "Boat",
     imgSrc: nav27,
   },
   {
     label: "Huts",
+    category: "Hut",
     imgSrc: nav29,
   },
   {
     label: "Ski-in/out",
+    category: "Ski",
     imgSrc: nav30,
   },
 ];

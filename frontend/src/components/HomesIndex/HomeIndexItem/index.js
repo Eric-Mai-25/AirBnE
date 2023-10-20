@@ -17,14 +17,14 @@ function HomeIndexItem({ home }) {
       <Link to={`/homes/${home.id}`} className="card">
         <img src={home.photoUrls[0]} className="card-img" />
         <div className="card-info">
-          <p className="card-title">{home.title}</p>
+          <p className="card-title">{home.city} , {home.state}</p>
           <div className="card-rating">
             <AiFillStar />
-            <p>4.00</p>
+            <p>{(Math.random() * 4 + 1).toFixed(1)}</p>
           </div>
         </div>
         <div className="card-info">
-            <p className="card-distance">30 miles away</p>
+            <p className="card-distance">{home.title}</p>
         </div>
         <div className="card-info-price">
             <p className="card-price">${home.nightPrice}</p>

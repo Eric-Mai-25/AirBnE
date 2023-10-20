@@ -17,7 +17,7 @@
 }
 .review-box {
   width: 100%;
-  height: 10rem;
+  height: 7rem;
 }
 .review-profile-data {
   display: flex;
@@ -34,6 +34,27 @@
   height: 50px;
 }
 
-.user-date{
+.user-date {
   padding-left: 5px;
+}
+
+.review-create {
+  height: 4em;
+  width: 150px;
+  padding: 1.5em auto;
+  margin: 1em auto;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 7px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700;
+}
+
+.review-create:hover{
+  filter: brightness(95%);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+}
+.review-create-box {
+  padding-bottom: 5rem;
 }

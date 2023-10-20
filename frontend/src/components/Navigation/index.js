@@ -1,29 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-// import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import logo from "../../assets/logo/long-logo.png";
 import { HiOutlineSearch } from "react-icons/hi";
 import "./Navigation.css";
 
 function Navigation() {
-//   const [dropdown, setDropown] = useState(false);
-//   const sessionUser = useSelector((state) => state.session.user);
-  
-  //   let sessionLinks;
-  //   if (sessionUser) {
-  //     sessionLinks = <ProfileButton user={sessionUser} />;
-  //   } else {
-  //     sessionLinks = (
-  //       <>
-  //         <div className="header-profile">
 
-  //           {/* <NavLink to="/login">Log In</NavLink>
-  //           <NavLink to="/signup">Sign Up</NavLink> */}
-  //         </div>
-  //       </>
-  //     );
-  //   }
 
   return (
     <div className="nav-bar">
