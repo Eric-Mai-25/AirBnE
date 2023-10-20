@@ -13,7 +13,7 @@ require "open-uri"
 CATEGORIES = ["beachfront", "countryside", "cabin", "mansion", "lakefront", "amazing views", "tiny home", "modern", "barn", "omg"]
 PROPERTY_TYPES = ["House", "Apartment", "Studio", "Cabin", "Private Room"]
 PROFILE_PICTURES = ["https://xsgames.co/randomusers/avatar.php?g=male", "https://xsgames.co/randomusers/avatar.php?g=female"]
-REVIEW_ARRAY= [
+REVIEW_ARRAY = [
   "Our stay at this Airbnb was absolutely delightful. The cozy atmosphere and thoughtful amenities made us feel right at home. The host's communication was top-notch, and we can't wait to come back!",
   "The location of this Airbnb was perfect for exploring the city. The cleanliness and modern decor exceeded our expectations. We had a fantastic time, and the host was incredibly accommodating.",
   "This Airbnb was a hidden gem! The breathtaking views from the balcony left us in awe. We enjoyed a peaceful and relaxing weekend getaway, and the host's attention to detail was impeccable.",
@@ -221,6 +221,10 @@ HOMES_ARRAY = listings = [
 
 puts "Destroying tables..."
 # Unnecessary if using `rails db:seed:replant`
+
+Reservation.destroy_all
+Review.destroy_all
+Home.destroy_all
 User.destroy_all
 
 puts "Resetting primary keys..."
@@ -256,7 +260,6 @@ end
 
 # Clear existing data
 # This will delete all records from the corresponding table.
-Home.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!("homes")
 
@@ -300,11 +303,9 @@ HOMES_ARRAY.each do |data|
   ])
 end
 
-Review.destroy_all
-
 ApplicationRecord.connection.reset_pk_sequence!("reviews")
 
-50.times do
+100.times do
   Review.create(
     author_id: Faker::Number.between(from: 1, to: 20), # Assuming user IDs are between 1 and 30
     home_id: Faker::Number.between(from: 1, to: 30), # Assuming home IDs are between 1 and 20
