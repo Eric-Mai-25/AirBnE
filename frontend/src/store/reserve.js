@@ -1,9 +1,17 @@
 import csrfFetch from "./csrf";
+import { RECEIVE_REVIEWS } from "./review";
 
+export const RECEIVE_RESERVATIONS = "reviews/RECEIVE_RESERVATIONS"
 export const RECEIVE_RESERVATION = "reservations/RECEIVE_RESERVATION";
 export const ADD_RESERVATION = "reservations/ADD_RESERVATION";
 export const CLEAR_RESERVATION = "reservations/CLEAR_RESERVATION";
 
+export const allReservations = reservations =>{
+  return{
+    type: RECEIVE_RESERVATIONS,
+    reservations
+  }
+}
 const load = (reservation) => {
   return {
     type: RECEIVE_RESERVATION,
@@ -60,6 +68,8 @@ const reserveReducer = (state = {}, action) => {
     case CLEAR_RESERVATION:
       nextState.reserveData = null;
       return nextState;
+    case RECEIVE_RESERVATIONS:
+      return action.reservations ? action.reservations : {}
     default:
       return state;
   }

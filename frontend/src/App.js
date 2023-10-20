@@ -7,6 +7,7 @@ import HomesIndex from "./components/HomesIndex";
 import HomeShow from "./components/HomeShow";
 import ReservationCreate from "./components/ReservationCreate";
 import ReviewCreate from "./components/ReviewCreate";
+import ReservationIndex from "./components/ReservationIndex";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route exact path="/reviews/:homeId">
           <ReviewCreate/>
+        </Route>
+        <Route exact path="/reservations/:userId">
+          <ReservationIndex/>
         </Route>
       </Switch>
     </>
