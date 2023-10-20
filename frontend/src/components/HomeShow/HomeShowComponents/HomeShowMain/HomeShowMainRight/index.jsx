@@ -25,7 +25,6 @@ function HomeShowMainRight({ home, rating, numReview }) {
     guests,
   };
 
-  // localStorage.setItem("reserve", JSON.stringify(data));÷
 
   const handleCheckIn = (e) => {
     setCheckIn(e.target.value);

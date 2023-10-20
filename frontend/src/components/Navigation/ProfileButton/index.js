@@ -4,10 +4,12 @@ import { useSelector } from "react-redux";
 import * as sessionActions from "../../../store/session";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { PiUserCircleFill } from "react-icons/pi";
-import { NavLink } from "react-router-dom";
+import { BsGithub } from "react-icons/bs";
+import { AiOutlineLinkedin } from "react-icons/ai";
+
 import "./ProfileButton.css";
 import Modal from "../../Modal";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function ProfileButton() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -105,6 +107,16 @@ function ProfileButton() {
   return (
     <>
       <div className="profile-button" onClick={openMenu}>
+        <NavLink to={{pathname: "https://github.com/Eric-Mai-25"}} target="_blank">
+          <div className="link-icon">
+            <BsGithub size={"2rem"}/>
+          </div>
+        </NavLink>
+        <NavLink to={{pathname: "https://www.linkedin.com/in/eric-061992/"}} target="_blank">
+        <div className="link-icon">
+          <AiOutlineLinkedin  size={"2rem"}/>
+        </div>
+        </NavLink>
         <div className="profile-dropdown">
           <GiHamburgerMenu size={"0.7em"} className="hamburger" />
           <PiUserCircleFill className="user-fill" />

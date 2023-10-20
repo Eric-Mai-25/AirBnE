@@ -1,32 +1,40 @@
-.log-btn{
-    margin-top: 1rem;
-    font-weight: bold;
+.log-btn {
+  margin-top: 1rem;
+  font-weight: bold;
 }
-.logout-btn{
-  margin-bottom: 1rem ;
+.logout-btn {
+  margin-bottom: 1rem;
 }
 
-
-.login-line{
-    height: 1px;
-    background-color: var(--grey);
-    width: 100%;
+.login-line {
+  height: 1px;
+  background-color: var(--grey);
+  width: 100%;
 }
 .user-drop-down button {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
-    text-align: left;
-    width: 100%;
-    border: none;
-    background: none;
-  }
-  
-  .user-drop-down button:hover {
-    background-color: rgb(243, 243, 243);
-  }
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  text-align: left;
+  width: 100%;
+  border: none;
+  background: none;
+}
 
+.user-drop-down button:hover {
+  background-color: rgb(243, 243, 243);
+}
 
-  .signup-btn{
-    margin-bottom: 1rem;
-  }
+.signup-btn {
+  margin-bottom: 1rem;
+}
+
+.profile-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-icon {
+  padding: 0rem 0.5rem;
+}

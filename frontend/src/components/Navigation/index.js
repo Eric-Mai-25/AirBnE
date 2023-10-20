@@ -23,6 +23,7 @@ function Navigation() {
           <HiOutlineSearch className="search-icon" />
         </div>
       </div>
+
       <ProfileButton />
       {/* {sessionLinks} */}
     </div>
